@@ -47,6 +47,6 @@ SELECT anyo_inicio, COUNT(DISTINCT id_alumno) FROM universidad.alumno_se_matricu
 /*Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.*/
 SELECT persona.id, persona.nombre AS profesor, apellido1, apellido2, COUNT(DISTINCT asignatura.nombre) AS asignaturas FROM universidad.asignatura RIGHT JOIN universidad.persona ON universidad.persona.id=universidad.asignatura.id_profesor GROUP BY persona.nombre ORDER BY asignaturas DESC;
 /*Retorna totes les dades de l'alumne més jove.*/
-SELECT * FROM universidad.persona WHERE (tipo='alumno') HAVING MIN(fecha_nacimiento);
+SELECT id, nif, nombre, apellido1, apellido2, ciudad, direccion, telefono,  MAX(fecha_nacimiento), sexo, tipo FROM universidad.persona WHERE (tipo='alumno');
 /*Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.*/
 SELECT persona.nombre AS Profesor, id_departamento, asignatura.nombre AS asignatura FROM universidad.persona LEFT JOIN universidad.profesor ON universidad.profesor.id_profesor=universidad.persona.id LEFT JOIN universidad.asignatura ON universidad.asignatura.id_profesor=universidad.profesor.id_profesor WHERE persona.tipo='profesor' HAVING asignatura.nombre IS NULL;
