@@ -60,5 +60,5 @@ SELECT producto.nombre AS producto, precio , fabricante.nombre AS fabricante FRO
 SELECT producto.nombre AS producto, precio , fabricante.nombre AS fabricante FROM tienda.producto RIGHT JOIN tienda.fabricante ON tienda.fabricante.codigo=tienda.producto.codigo_fabricante WHERE fabricante.nombre LIKE '%e';   
 /*Retorna un llistat amb el nom i el preu de tots els productes dels fabricants dels quals contingui el caràcter w en el seu nom.*/
 SELECT producto.nombre AS producto, precio , fabricante.nombre AS fabricante FROM tienda.producto RIGHT JOIN tienda.fabricante ON tienda.fabricante.codigo=tienda.producto.codigo_fabricante WHERE fabricante.nombre LIKE '%w%';   
-/*Retorna un llistat amb el nom de producte, preu i nom de fabricant, de tots els productes que tinguin un preu major o igual a 180 €. Ordena el resultat, en primer lloc, pel preu (en ordre descendent) i, en segon lloc, pel nom (en ordre ascendent).*/
+
 
